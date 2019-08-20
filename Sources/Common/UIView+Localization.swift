@@ -9,8 +9,10 @@
 import UIKit
 
 extension UIView {
-    func localize(_ semantic: UISemanticContentAttribute) {
-        subviews.forEach { $0.localize(semantic) }
+    func localize(_ semantic: UISemanticContentAttribute, recursive: Bool = true) {
+        if recursive {
+            subviews.forEach { $0.localize(semantic) }
+        }
 
         guard semanticContentAttribute != .playback, semanticContentAttribute != .spatial else { return }
 

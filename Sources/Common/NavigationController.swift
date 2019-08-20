@@ -19,6 +19,7 @@ class NavigationController: UINavigationController, Localizable {
 
     func localize() {
         navigationBar.localize(localization.language.semanticAttribute)
+        view.localize(localization.language.semanticAttribute, recursive: false)
         viewControllers
             .compactMap { $0 as? Localizable }
             .forEach { $0.localize() }

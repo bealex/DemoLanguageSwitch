@@ -52,8 +52,8 @@ class Localization {
 
     func update() {
         let bundle = Bundle(for: type(of: self))
-        if let path = bundle.path(forResource: language.identifier, ofType: "lproj"),
-                let updatedBundle = Bundle(path: path) {
+        let path = bundle.path(forResource: language.identifier, ofType: "lproj")
+        if let path = path, let updatedBundle = Bundle(path: path) {
             currentBundle = updatedBundle
         } else {
             currentBundle = bundle
